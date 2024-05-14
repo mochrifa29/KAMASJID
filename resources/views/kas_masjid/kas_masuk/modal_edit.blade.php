@@ -8,7 +8,7 @@
              </div>
              <div class="modal-body">
                  <form class="row">
-                     <input type="text" id="id_rekap">
+                     <input type="hidden" id="id_rekap">
                      <div class="col-md-12 mb-2">
                          <label for="validationCustom01" class="form-label">Kategori</label>
                          <select class="form-select" id="kategoriEdit" aria-label="Default select example">

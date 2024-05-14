@@ -4,19 +4,19 @@
      <ul class="sidebar-nav" id="sidebar-nav">
          <li class="nav-heading">Dashboard</li>
          <li class="nav-item">
-             <a class="nav-link " href="index.html">
+             <a class="nav-link {{ Request::is('dashboard') ? '' : 'collapsed' }}" href="/dashboard">
                  <i class="bi bi-grid"></i>
                  <span>Dashboard</span>
              </a>
          </li><!-- End Dashboard Nav -->
          <li class="nav-item">
-             <a class="nav-link collapsed" href="/kategori">
+             <a class="nav-link {{ Request::is('kategori') ? '' : 'collapsed' }}" href="/kategori">
                  <i class="bi bi-menu-button-wide"></i>
                  <span>Kategori</span>
              </a>
          </li>
          <li class="nav-item">
-             <a class="nav-link collapsed" href="/pengguna">
+             <a class="nav-link {{ Request::is('pengguna') ? '' : 'collapsed' }}" href="/pengguna">
                  <i class="bi bi-person"></i>
                  <span>Pengguna</span>
              </a>
@@ -41,14 +41,14 @@
              </ul>
          </li><!-- End Components Nav -->
          <li class="nav-item">
-             <a class="nav-link collapsed" href="/rekapKas_masjid">
+             <a class="nav-link {{ Request::is('rekapKas_masjid') ? '' : 'collapsed' }}" href="/rekapKas_masjid">
                  <i class="bi bi-menu-button-wide"></i>
                  <span>Rekap Kas Masjid</span>
              </a>
          </li>
          <li class="nav-heading">Laporan</li>
          <li class="nav-item">
-             <a class="nav-link collapsed" href="#">
+             <a class="nav-link {{ Request::is('laporan') ? '' : 'collapsed' }}" href="/laporan">
                  <i class="bi bi-menu-button-wide"></i>
                  <span>Laporan</span>
              </a>
