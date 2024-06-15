@@ -101,66 +101,13 @@
                         <div class="col-12">
                             <div class="card">
 
-
+                                
                                 <div class="card-body">
                                     <h5 class="card-title">Reports <span>/Today</span></h5>
 
                                     <!-- Line Chart -->
                                     <div id="reportsChart"></div>
 
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                            new ApexCharts(document.querySelector("#reportsChart"), {
-                                                series: [{
-                                                    name: 'Pemasukan',
-                                                    data: [31, 40, 28, 51, 42, 82, 56],
-                                                }, {
-                                                    name: 'Pengeluaran',
-                                                    data: [11, 32, 45, 32, 34, 52, 41]
-                                                }],
-                                                chart: {
-                                                    height: 350,
-                                                    type: 'area',
-                                                    toolbar: {
-                                                        show: false
-                                                    },
-                                                },
-                                                markers: {
-                                                    size: 4
-                                                },
-                                                colors: ['#4154f1','#ff771d'],
-                                                fill: {
-                                                    type: "gradient",
-                                                    gradient: {
-                                                        shadeIntensity: 1,
-                                                        opacityFrom: 0.3,
-                                                        opacityTo: 0.4,
-                                                        stops: [0, 90, 100]
-                                                    }
-                                                },
-                                                dataLabels: {
-                                                    enabled: false
-                                                },
-                                                stroke: {
-                                                    curve: 'smooth',
-                                                    width: 2
-                                                },
-                                                xaxis: {
-                                                    type: 'date',
-                                                    categories: ["2018-09-19", "2018-09-19",
-                                                        "2018-09-19", "2018-09-19",
-                                                        "2018-09-19", "2018-09-19",
-                                                        "2018-09-19"
-                                                    ]
-                                                },
-                                                tooltip: {
-                                                    x: {
-                                                        format: 'dd/MM/yy'
-                                                    },
-                                                }
-                                            }).render();
-                                        });
-                                    </script>
                                     <!-- End Line Chart -->
 
                                 </div>
@@ -182,50 +129,6 @@
                             <h5 class="card-title">Traffic </h5>
 
                             <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
-
-                            <script>
-                                document.addEventListener("DOMContentLoaded", () => {
-                                    echarts.init(document.querySelector("#trafficChart")).setOption({
-                                        tooltip: {
-                                            trigger: 'item'
-                                        },
-                                        legend: {
-                                            top: '5%',
-                                            left: 'center'
-                                        },
-                                        series: [{
-                                            name: 'Access From',
-                                            type: 'pie',
-                                            radius: ['40%', '70%'],
-                                            avoidLabelOverlap: false,
-                                            label: {
-                                                show: false,
-                                                position: 'center'
-                                            },
-                                            emphasis: {
-                                                label: {
-                                                    show: true,
-                                                    fontSize: '18',
-                                                    fontWeight: 'bold'
-                                                }
-                                            },
-                                            labelLine: {
-                                                show: false
-                                            },
-                                            data: [{
-                                                    value: {{ $saldo_masuk }},
-                                                    name: 'Kas Masuk'
-                                                },
-                                                {
-                                                    value: {{ $saldo_keluar }},
-                                                    name: 'Kas Keluar'
-                                                },
-                                            ]
-                                        }]
-                                    });
-                                });
-                            </script>
-
                         </div>
                     </div><!-- End Recent Activity -->
 
@@ -238,9 +141,101 @@
     </main><!-- End #main -->
     <script>
         $(document).ready(function() {
-           
-        })
 
-       
+        })
+        // pie chart
+        document.addEventListener("DOMContentLoaded", () => {
+            echarts.init(document.querySelector("#trafficChart")).setOption({
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    top: '5%',
+                    left: 'center'
+                },
+                series: [{
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [{
+                            value: {{ $saldo_masuk }},
+                            name: 'Kas Masuk'
+                        },
+                        {
+                            value: {{ $saldo_keluar }},
+                            name: 'Kas Keluar'
+                        },
+                    ]
+                }]
+            });
+        });
+
+        //report
+        document.addEventListener("DOMContentLoaded", () => {
+            new ApexCharts(document.querySelector("#reportsChart"), {
+                series: [{
+                    name: 'Pemasukan',
+                    data: [4, 77, 90, 34, 57],
+                }, {
+                    name: 'Pengeluaran',
+                    data: [1, 44, 77, 90, 56]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'area',
+                    toolbar: {
+                        show: false
+                    },
+                },
+                markers: {
+                    size: 4
+                },
+                colors: ['#4154f1', '#ff771d'],
+                fill: {
+                    type: "gradient",
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.3,
+                        opacityTo: 0.4,
+                        stops: [0, 90, 100]
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 2
+                },
+                xaxis: {
+                    type: 'date',
+                    categories: ["2018-09-19", "2018-09-19",
+                        "2018-09-19", "2018-09-19",
+                        "2018-09-19", "2018-09-19",
+                        "2018-09-19"
+                    ]
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy'
+                    },
+                }
+            }).render();
+        });
     </script>
 @endsection
